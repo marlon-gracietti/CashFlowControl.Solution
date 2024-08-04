@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        submodules: true
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: mgracietti/cashflowcontrol.solution:latest
+
+      - name: Test services
+        run: |
+          docker-compose up --build -d
+          docker-compose exec transactions-service dotnet test
+          docker-compose exec daily-summary-service dotnet test
+          docker-compose down

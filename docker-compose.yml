@@ -1,0 +1,39 @@
+services:
+  mysql:
+    image: mysql:9.0.1
+    environment:
+      MYSQL_ROOT_PASSWORD: '!2E45G_root'
+      MYSQL_DATABASE: cashflow
+      MYSQL_USER: cashflow_user
+      MYSQL_PASSWORD: '!2E45G'
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  transactionsservice:
+    build:
+      context: CashFlowControl.TransactionsService/TransactionsService
+      dockerfile: Dockerfile
+    depends_on:
+      - mysql
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=mysql;Database=cashflow;User=cashflow_user;Password=!2E45G;
+    ports:
+      - "8080:80"
+
+  dailysummaryservice:
+    build:
+      context: CashFlowControl.DailySummaryService/DailySummaryService
+      dockerfile: Dockerfile
+    depends_on:
+      - mysql
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=mysql;Database=cashflow;User=cashflow_user;Password=!2E45G;
+    ports:
+      - "8081:80"
+
+volumes:
+  mysql_data:
