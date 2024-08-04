@@ -1,0 +1,6 @@
+@DailySummaryService_HostAddress = http://localhost:5285
+
+GET {{DailySummaryService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
