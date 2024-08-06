@@ -15,11 +15,13 @@ jobs:
     steps:
       - name: Check out the repository
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Ensure full repository history is fetched
 
       - name: Set up .NET
         uses: actions/setup-dotnet@v2
         with:
-          dotnet-version: '8.0'
+          dotnet-version: '7.0.x'  # Adjust the .NET version as needed
 
       - name: Restore dependencies
         run: dotnet restore CashFlowControl.Solution.sln
