@@ -43,7 +43,7 @@ The project is structured following the Clean Architecture approach, which separ
    *Windows*
    ```bash
    cd CashFlowControl.Solution/scripts   
-   ./run.bat
+   ./run.ps1
    ```
 
 2. **Nativatge to API Documentation**
