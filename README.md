@@ -33,7 +33,7 @@ The project is structured following the Clean Architecture approach, which separ
    ```bash
    git clone https://github.com/mgracietti/CashFlowControl.Solution.git      
    ```
-2. *Run setup script*
+2. **Run setup script**
    ```bash
    cd CashFlowControl.Solution/scripts   
    ./run.sh
