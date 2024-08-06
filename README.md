@@ -40,7 +40,8 @@ The project is structured following the Clean Architecture approach, which separ
    ```
 
 2. **Nativatge to API Documentation**
-Swagger: Navigate to /swagger in your browser to access the API documentation and explore the available endpoints.
+
+In your browser access the API documentation and explore the available endpoints.
 - TransactionsService: [http://localhost:8080/swagger/index.html](http://localhost:8080/swagger/index.html)
 - DailySummaryService: [http://localhost:8081/swagger/index.html]( http://localhost:8081/swagger/index.html)
 
