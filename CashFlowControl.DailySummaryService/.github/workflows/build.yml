@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Build, Test and Deploy
 
 on:
   push:
@@ -24,11 +24,17 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore DailySummaryService/DailySummaryService.csproj
 
+    - name: Restore test project dependencies
+      run: dotnet restore tests/DailySummary.UnitTests/DailySummary.UnitTests.csproj
+
     - name: Build solution
       run: dotnet build DailySummaryService/DailySummaryService.csproj --configuration Release
 
+    - name: Build test project
+      run: dotnet build tests/DailySummary.UnitTests/DailySummary.UnitTests.csproj --configuration Release
+
     - name: Run tests
-      run: dotnet test DailySummaryService/DailySummaryService.csproj --configuration Release --no-build --verbosity normal
+      run: dotnet test tests/DailySummary.UnitTests/DailySummary.UnitTests.csproj --configuration Release --no-build --verbosity normal
 
     # bypass to integrate with docker hub free account
     - name: Set up Docker Buildx
