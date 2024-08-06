@@ -34,9 +34,16 @@ The project is structured following the Clean Architecture approach, which separ
    git clone https://github.com/mgracietti/CashFlowControl.Solution.git      
    ```
 2. **Run setup script**
+
+   *Linux*
    ```bash
    cd CashFlowControl.Solution/scripts   
    ./run.sh
+   ```
+   *Windows*
+   ```bash
+   cd CashFlowControl.Solution/scripts   
+   ./run.bat
    ```
 
 2. **Nativatge to API Documentation**
