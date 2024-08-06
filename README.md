@@ -1,5 +1,7 @@
 # CashFlowControl.Solution
 
+[![CI Pipeline](https://github.com/mgracietti/CashFlowControl.Solution/actions/workflows/ci.yml/badge.svg)](https://github.com/mgracietti/CashFlowControl.Solution/actions/workflows/ci.yml)
+
 ## Introduction
 CashFlowControl.Solution is a comprehensive financial management application designed to streamline cash flow tracking, transaction management, and daily financial summaries. This solution employs clean architecture principles, ensuring maintainability, scalability, and testability.
 
