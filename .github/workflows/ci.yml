@@ -19,13 +19,13 @@ jobs:
       - name: Set up .NET
         uses: actions/setup-dotnet@v2
         with:
-          dotnet-version: '8.0' 
+          dotnet-version: '8.0'
 
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore CashFlowControl.Solution.sln
 
       - name: Build the solution
-        run: dotnet build --no-restore --configuration Release
+        run: dotnet build CashFlowControl.Solution.sln --no-restore --configuration Release
 
       - name: Run tests
-        run: dotnet test --no-restore --verbosity normal
+        run: dotnet test CashFlowControl.Solution.sln --no-restore --verbosity normal
