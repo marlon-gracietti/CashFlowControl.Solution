@@ -30,8 +30,7 @@ The project is structured following the Clean Architecture approach, which separ
 1. **Clone the Repository**
    ```bash
    git clone https://github.com/mgracietti/CashFlowControl.Solution.git   
-   cd CashFlowControl.Solution/scripts
-   ./setup-dev-environment.sh
+   cd CashFlowControl.Solution/scripts   
    ./run.sh
    ```
 
