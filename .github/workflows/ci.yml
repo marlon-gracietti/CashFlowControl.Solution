@@ -26,8 +26,8 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore CashFlowControl.Solution.sln
 
-      # - name: Build the solution
-      #   run: dotnet build CashFlowControl.Solution.sln --no-restore --configuration Release
+      - name: Build the solution
+        run: dotnet build CashFlowControl.Solution.sln --no-restore --configuration Release
 
-      # - name: Run tests
-      #   run: dotnet test CashFlowControl.Solution.sln --no-restore --verbosity normal
+      - name: Run tests
+        run: dotnet test CashFlowControl.Solution.sln --no-restore --verbosity normal
