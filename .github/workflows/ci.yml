@@ -16,33 +16,16 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@v2
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-
-      - name: Log in to DockerHub
-        uses: docker/login-action@v1
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v2
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          dotnet-version: '8.0' 
 
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          push: true
-          tags: mgracietti/cashflowcontrol.solution:latest
+      - name: Restore dependencies
+        run: dotnet restore
 
-      - name: Install Docker Compose
-        run: sudo apt-get update && sudo apt-get install -y docker-compose
+      - name: Build the solution
+        run: dotnet build --no-restore --configuration Release
 
       - name: Run tests
-        run: |
-          docker-compose up --build -d
-          docker-compose exec transactions-service dotnet test --no-build
-          docker-compose exec daily-summary-service dotnet test --no-build
-        env:
-          DOCKER_BUILDKIT: 1
-
-      - name: Tear down Docker Compose
-        if: always()
-        run: docker-compose down
+        run: dotnet test --no-restore --verbosity normal
