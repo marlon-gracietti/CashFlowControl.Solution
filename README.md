@@ -44,7 +44,7 @@ Swagger: Navigate to /swagger in your browser to access the API documentation an
 ```bash
 curl -X POST "http://localhost:8080/api/transactions" -H "Content-Type: application/json" -d '{
   "amount": 100,
-  "date": "2024-08-05T00:00:00Z",
+  "date": "2024-08-05T04:55:56Z",
   "isCredit": true,
   "description": "Payment received"
 }'
