@@ -314,3 +314,23 @@ curl -X POST "http://localhost:8080/api/transactions" -H "Content-Type: applicat
 ```bash
 curl -X GET "http://localhost:8080/api/dailysummary?date=2024-08-05"
 ```
+
+### Related Links
+### NuGet Packages
+
+https://www.nuget.org/packages/CashFlowControl.Application
+https://www.nuget.org/packages/CashFlowControl.Core
+https://www.nuget.org/packages/CashFlowControl.Infrastructure
+
+### GitHub Repositories
+https://github.com/mgracietti/CashFlowControl.Solution
+https://github.com/mgracietti/CashFlowControl.Shared
+https://github.com/mgracietti/CashFlowControl.TransactionsService
+https://github.com/mgracietti/CashFlowControl.DailySummaryService
+
+### Docker Hub Repositories
+
+https://hub.docker.com/repository/docker/devpraxis/transactions-service
+https://hub.docker.com/repository/docker/devpraxis/daily-summary-service
+
+
