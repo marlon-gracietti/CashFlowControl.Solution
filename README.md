@@ -288,7 +288,7 @@ resource "aws_security_group" "lb" {
    *Windows*
    ```bash
    cd CashFlowControl.Solution/scripts   
-   ./run.ps1
+   ./run.bat
    ```
 
 2. **Nativatge to API Documentation**
