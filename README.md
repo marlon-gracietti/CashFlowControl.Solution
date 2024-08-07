@@ -14,6 +14,11 @@ The project is structured following the Clean Architecture approach, which separ
 - **Infrastructure**: Handles data access, external services, and other infrastructure concerns.
 - **Presentation**: Manages the user interface and API endpoints.
 
+### Clear Architecture - Horizontal Layer View
+![Untitled Diagram drawio](https://github.com/user-attachments/assets/c13ddb59-6f5e-44cb-9920-2d17e4bafeef)
+
+![1Untitled Diagram drawio](https://github.com/user-attachments/assets/07d2b792-fe91-4293-98b8-912b1e0a3235)
+
 ## Technologies Used
 - **ASP.NET Core**: For building web APIs.
 - **Entity Framework Core**: For database management and ORM.
