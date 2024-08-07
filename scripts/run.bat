@@ -1,24 +1,26 @@
-# Stop execution on any error
-$ErrorActionPreference = "Stop"
+@echo off
+setlocal enabledelayedexpansion
 
-# Navigate to the script directory
-Set-Location -Path (Split-Path -Path $MyInvocation.MyCommand.Definition -Parent)
+REM Navigate to the script directory
+cd /d "%~dp0"
 
-# Start MySQL service
+REM Start MySQL service
 docker-compose up -d mysql
 
-# Wait for MySQL to be ready
-Write-Output "Waiting for MySQL to be ready (30 seconds)..."
-Start-Sleep -Seconds 30
+REM Wait for MySQL to be ready
+echo Waiting for MySQL to be ready (30 seconds)...
+timeout /t 30 /nobreak
 
-# Start all services
-Write-Output "Starting all services..."
+REM Start all services
+echo Starting all services...
 docker-compose up --build
 
-# # Apply migrations for TransactionsService
-# Write-Output "Applying migrations for TransactionsService..."
-# docker-compose run --rm transactions-service dotnet ef database update --project src/TransactionsService
+REM Apply migrations for TransactionsService
+REM echo Applying migrations for TransactionsService...
+REM docker-compose run --rm transactionsservice dotnet ef database update --project src/TransactionsService
 
-# # Apply migrations for DailySummaryService
-# Write-Output "Applying migrations for DailySummaryService..."
-# docker-compose run --rm daily-summary-service dotnet ef database update --project src/DailySummaryService
+REM Apply migrations for DailySummaryService
+REM echo Applying migrations for DailySummaryService...
+REM docker-compose run --rm dailysummaryservice dotnet ef database update --project src/DailySummaryService
+
+endlocal
