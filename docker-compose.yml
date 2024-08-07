@@ -2,10 +2,10 @@ services:
   mysql:
     image: mysql:9.0.1
     environment:
-      MYSQL_ROOT_PASSWORD: '!2E45G_root'
-      MYSQL_DATABASE: cashflow
-      MYSQL_USER: cashflow_user
-      MYSQL_PASSWORD: '!2E45G'
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
       - "3306:3306"
     volumes:
@@ -19,7 +19,7 @@ services:
       - mysql
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=Server=mysql;Database=cashflow;User=cashflow_user;Password=!2E45G;
+      - ConnectionStrings__DefaultConnection=Server=mysql;Database=${MYSQL_DATABASE};User=${MYSQL_USER};Password=${MYSQL_PASSWORD};
     ports:
       - "8080:80"
 
@@ -31,7 +31,7 @@ services:
       - mysql
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=Server=mysql;Database=cashflow;User=cashflow_user;Password=!2E45G;
+      - ConnectionStrings__DefaultConnection=Server=mysql;Database=${MYSQL_DATABASE};User=${MYSQL_USER};Password=${MYSQL_PASSWORD};
     ports:
       - "8081:80"
 
