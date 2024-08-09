@@ -10,15 +10,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CashFlowControl.Application" Version="2024.8.6.1710" />
+    <PackageReference Include="CashFlowControl.Core" Version="2024.8.6.1710" />
+    <PackageReference Include="CashFlowControl.Infrastructure" Version="2024.8.6.1710" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.5" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\CashFlowControl.Shared\CashFlowControl.Application\CashFlowControl.Application.csproj" />
-    <ProjectReference Include="..\..\CashFlowControl.Shared\CashFlowControl.Core\CashFlowControl.Core.csproj" />
-    <ProjectReference Include="..\..\CashFlowControl.Shared\CashFlowControl.Infrastructure\CashFlowControl.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
